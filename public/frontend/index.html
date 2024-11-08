@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from demo.cottic.com/html/fastburner/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Oct 2024 12:45:31 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fast Burner</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link href="../../../cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fast-header fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/banner-logo.png" class="img-fluid logo" alt="Fast Burner">
+                </a>
+                <div class="navbar-toggler fast-burger-menu btn-primary-fast" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <div class="d-flex align-items-center justify-content-center burger-menu">
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about-us.html">About us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#">Store <i class="fa-solid fa-chevron-down ps-2"></i></a>
+                            <ul class="dropdown-menu dropdown-right">
+                                <li class="drop-menu-item">
+                                    <a href="product-list.html">Product List</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="product-detail.html">Product Detail</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="cart.html">My Cart</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="my-account.html">My Account</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="checkout.html">Checkout</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="login.html">Customer Login</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="registration.html">Customer Registration</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="blog.html">Blog <i class="fa-solid fa-chevron-down ps-2"></i></a>
+                            <ul class="dropdown-menu dropdown-right">
+                                <li class="drop-menu-item">
+                                    <a href="blog.html">Blog with right sidebar</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="blog-left-sidebar.html">Blog with left sidebar</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="blog-no-sidebar.html">Blog with no sidebar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">Contact us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#">Pages <i class="fa-solid fa-chevron-down ps-2"></i></a>
+                            <ul class="dropdown-menu dropdown-right">
+                                <li class="drop-menu-item">
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="registration.html">Registration Page</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="404.html">404 Page</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 login-menu d-flex align-items-center">
+                        <li class="nav-item login-divider">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#">Currency $</a>
+                            <ul class="dropdown-menu login-menu-dropdown">
+                                <li class="drop-menu-item active">
+                                    <a href="#">USD $</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="#">EUR €</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="#">Pound £</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fast-cart" href="#">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="cart-count d-flex align-items-center justify-content-center">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Right side overlay menu -->
+        <div class="offcanvas offcanvas-end fast-offcanvas" tabindex="-1" id="offcanvasRight">
+            <div class="offcanvas-header d-flex justify-content-end">
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="list-unstyled fast-overlay-menu">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about-us.html">About Us</a>
+                    </li>
+                    <li>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                  Shop
+                                </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled fast-inner-overlay-menu">
+                                        <li>
+                                            <a href="javascript:void(0)">My Cart</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Orders List</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Products</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                  Blog
+                                </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled fast-inner-overlay-menu">
+                                        <li>
+                                            <a href="blog.html">Standard Blog Post</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Video Format Post</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Gallery Format Post</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Audio Format Post</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="contact-us.html">Contact Us</a>
+                    </li>
+                    <li>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+                                  Pages
+                                </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled fast-inner-overlay-menu">
+                                        <li>
+                                            <a href="login.html">Login Page</a>
+                                        </li>
+                                        <li>
+                                            <a href="login.html">Registration Page</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Edit User Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="contact-us.html">Contact Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Search</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Offline Page</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">404 Page</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Right side overlay menu -->
+    </header>
+    <!-- Header -->
+
+    <!-- Bannner -->
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="banner-title">Super Convenient Quality <span>Fatburner</span></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a, sagittis accumsan ipsum.</p>
+                    <a href="#" class="btn btn-primary-fast">Shop Now</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="banner-img">
+                        <img src="assets/images/banner_img.png" class="img-fluid" alt="Fast Burner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bannner -->
+
+    <!-- Free Shipping -->
+    <section class="free-shipping">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="d-flex justify-content-start align-items-center free-shipping-wrapper first">
+                        <div class="shipping-icon d-flex align-items-center justify-content-center">
+                            <img src="assets/images/free.png" class="img-fluid" alt="Fast Burner">
+                        </div>
+                        <div class="shipping-right-block">
+                            <h3 class="shipping-title">Free Shipping</h3>
+                            <div class="shipping-text">For US customers or Above $200</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="d-flex justify-content-start align-items-center free-shipping-wrapper second">
+                        <div class="shipping-icon d-flex align-items-center justify-content-center">
+                            <img src="assets/images/cart.png" class="img-fluid" alt="Fast Burner">
+                        </div>
+                        <div class="shipping-right-block">
+                            <h3 class="shipping-title">Support 24/7</h3>
+                            <div class="shipping-text">Contact us any time 24/7 support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="d-flex justify-content-start align-items-center free-shipping-wrapper third">
+                        <div class="shipping-icon d-flex align-items-center justify-content-center">
+                            <img src="assets/images/return.png" class="img-fluid" alt="Fast Burner">
+                        </div>
+                        <div class="shipping-right-block">
+                            <h3 class="shipping-title">Return Policy</h3>
+                            <div class="shipping-text">Simply returh with in 30days</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="d-flex justify-content-start align-items-center free-shipping-wrapper fourth">
+                        <div class="shipping-icon d-flex align-items-center justify-content-center">
+                            <img src="assets/images/credit-card.png" class="img-fluid" alt="Fast Burner">
+                        </div>
+                        <div class="shipping-right-block">
+                            <h3 class="shipping-title">Payment Secure</h3>
+                            <div class="shipping-text">We ensure Secure Payment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Free Shipping -->
+
+    <!-- About Us -->
+    <section class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="assets/images/about_us_img.png" class="img-fluid" alt="Fast Burner">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-us-title-sm">Know About Us</div>
+                    <h3 class="about-us-title">Introduce The Lightning <span>Fatburner</span></h3>
+                    <p>When setting off on your weight-loss journey, it's important to keep track of nutritionals to make sure you’re giving your body what it needs, while achieving that <strong>all-important calorie deficit.</strong></p>
+                    <ul>
+                        <li><strong><i class="fa-solid fa-check"></i> Helps Improve Waist-to-Hip Ratio.</strong></li>
+                        <li><strong><i class="fa-solid fa-check"></i> Increased Energy, Zero Jitters.</strong></li>
+                        <li><strong><i class="fa-solid fa-check"></i> Suppress Your Appetite Naturally.</strong></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary-fast">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Us -->
+
+    <!-- Features -->
+    <section class="fast-featuers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h2 class="features-title"><span>Essential Features</span> Of Our Fast Burner</h2>
+                    <div class="features-details-wrapper">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="features-details-card">
+                                    <img src="assets/images/natural_ingredient.svg" alt="Fast burner" class="img-fluid">
+                                    <h3>Natural Ingredients</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel est vitae mi hendrerit rhoncus id vitae lectus.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="features-details-card">
+                                    <img src="assets/images/green_energy.svg" alt="Fast burner" class="img-fluid">
+                                    <h3>Increased Energy</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel est vitae mi hendrerit rhoncus id vitae lectus.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="features-details-card">
+                                    <img src="assets/images/metabolism.svg" alt="Fast burner" class="img-fluid">
+                                    <h3>Improve Metabolism</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel est vitae mi hendrerit rhoncus id vitae lectus.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="features-details-card">
+                                    <img src="assets/images/slim.svg" alt="Fast burner" class="img-fluid">
+                                    <h3>100% Fat Blasting</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel est vitae mi hendrerit rhoncus id vitae lectus.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <p class="features-text">If you've been trying to lose a lot of weight, or if you're trying to get rid of that last layer of stubborn fat. Improves Metabolism that burning fat without losing hard-earned lean muscle.</p>
+                    <div class="features-video-wrapper">
+                        <img src="assets/images/video_img.jpg" class="img-fluid" alt="Fast burner">
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#featuresModal"><i class="fa-solid fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Modal -->
+    <div class="modal fade features-modal" id="featuresModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <iframe height="400" src="https://www.youtube.com/embed/6S7CcNAJffk?autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Features -->
+
+    <!-- Working steps -->
+    <section class="fast-working">
+        <img src="assets/images/working_step_img.png" class="img-fluid working-step-img" alt="Fast Burner">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h3 class="about-us-title"><span>Working Steps</span> Of Our Fastburner</h3>
+                    <p>If you've been trying to lose a lot of weight, or if you're trying to get rid of that last layer of stubborn fat. Improves Metabolism that burning fat without losing hard-earned lean muscle.</p>
+                </div>
+            </div>
+            <div class="row fast-steps-content">
+                <div class="col-lg-3 text-center">
+                    <div class="fast-working-circle d-flex justify-content-center align-items-center m-auto">
+                        <div class="fast-working-number">1</div>
+                    </div>
+                    <h3 class="fast-working-text">Right Amount of Protien</h3>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <div class="fast-working-circle d-flex justify-content-center align-items-center m-auto">
+                        <div class="fast-working-number">2</div>
+                    </div>
+                    <h3 class="fast-working-text">Drink Plenty of Water</h3>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <div class="fast-working-circle d-flex justify-content-center align-items-center m-auto">
+                        <div class="fast-working-number">3</div>
+                    </div>
+                    <h3 class="fast-working-text">Get Good Quality Sleep</h3>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <div class="fast-working-circle d-flex justify-content-center align-items-center m-auto">
+                        <div class="fast-working-number">4</div>
+                    </div>
+                    <h3 class="fast-working-text">Burning Fat at Rest Time</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Working steps -->
+
+    <!-- Essential benefits -->
+    <section class="fast-benefits">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h3 class="about-us-title"><span>Essential Benifits</span> Of Our Fastburner</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
+                </div>
+            </div>
+            <div class="row fast-benefits-features-wrapper">
+                <div class="col-lg-4">
+                    <div class="fast-benefits-card d-flex align-items-center">
+                        <div class="fast-benefits-card-green">01</div>
+                        <h3 class="fast-benefits-card-text">RIP the Fat level</h3>
+                    </div>
+
+                    <div class="fast-benefits-card d-flex align-items-center">
+                        <div class="fast-benefits-card-green">02</div>
+                        <h3 class="fast-benefits-card-text">Incenirate The Fat</h3>
+                    </div>
+
+                    <div class="fast-benefits-card d-flex align-items-center">
+                        <div class="fast-benefits-card-green">03</div>
+                        <h3 class="fast-benefits-card-text">Unleash the Fat</h3>
+                    </div>
+
+                    <div class="fast-benefits-card d-flex align-items-center">
+                        <div class="fast-benefits-card-green">04</div>
+                        <h3 class="fast-benefits-card-text">Higher Metabolism</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center d-flex align-items-center">
+                    <img src="assets/images/banner_img.png" class="img-fluid" alt="Fast Burner">
+                </div>
+                <div class="col-lg-4">
+                    <div class="fast-benefits-card d-flex align-items-center">
+                        <div class="fast-benefits-card-green">05</div>
+                        <h3 class="fast-benefits-card-text">Drop A Firebomb</h3>
+                    </div>
+
+                    <div class="fast-benefits-card d-flex align-items-center">
+                        <div class="fast-benefits-card-green">06</div>
+                        <h3 class="fast-benefits-card-text">Naturally Supress</h3>
+                    </div>
+
+                    <div class="fast-benefits-card d-flex align-items-center">
+                        <div class="fast-benefits-card-green">07</div>
+                        <h3 class="fast-benefits-card-text">Enjoy Higher Leavel</h3>
+                    </div>
+
+                    <div class="fast-benefits-card d-flex align-items-center">
+                        <div class="fast-benefits-card-green">08</div>
+                        <h3 class="fast-benefits-card-text">Force Metabolism</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Essential benefits -->
+
+    <!-- Fast start -->
+    <section class="fast-start">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="features-title pb-5">Use Fast Burner For Weight Loss Today. What Are You Waiting For?</h2>
+                    <a href="#" class="btn btn-primary-fast">Get Start Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fast start -->
+
+    <!-- Fast Cart -->
+    <section class="fast-cart-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="assets/images/banner_img.png" class="img-fluid" alt="Fast Burner">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="about-us-title">Nuclear Fast Burner</h3>
+                    <div class="price-wrapper">
+                        <span class="price-strike">$180.00</span>
+                        <span class="price-cart">$100.00</span>
+                    </div>
+                    <div class="cart-details-wrapper">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel est vitae mi hendrerit rhoncus id vitae lectus.Proin malesuada bibendum congue. Phasellus semper.</p>
+                        <div class="cart-details">
+                            <span class="cart-bold">SKU: </span>
+                            <span>FB-1</span>
+                        </div>
+                        <div class="cart-details">
+                            <span class="cart-bold">Brand: </span>
+                            <span>Fastburner</span>
+                        </div>
+                        <div class="cart-details">
+                            <span class="cart-bold">Availability: </span>
+                            <span class="text-green">87 In Stock</span>
+                        </div>
+                    </div>
+                    <div class="cart-option-wrapper d-flex">
+                        <div class="text-option-bold">Flavour:</div>
+                        <ul class="list-inline">
+                            <li class="list-inline-item active">
+                                <a href="#">Peach Mango</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">Strawberry Lime</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">Unflavoured</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cart-option-wrapper d-flex">
+                        <div class="text-option-bold">Amount:</div>
+                        <ul class="list-inline">
+                            <li class="list-inline-item active">
+                                <a href="#">250G</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">500G ( + $100.00 )</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">1000G ( + $200.00 )</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cart-btn-wrapper d-flex">
+                        <input type="text" class="form-control checkout-form-input" placeholder="1">
+                        <a href="#" class="btn btn-primary-fast mx-2">Add to Cart</a>
+                        <a href="#" class="btn btn-secondary-fast">Add to Wish List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fast Cart -->
+
+    <!-- Fast customers -->
+    <section class="fast-customers">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h3 class="about-us-title"><span>What Our Customers </span>are saying</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="owl-carousel customers-carousel owl-theme">
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review1.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Tommy Dents</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review2.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Amelia Jones</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review3.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Silviia Garden</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review2.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Amelia Jones</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review1.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Tommy Dents</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review2.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Amelia Jones</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review1.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Tommy Dents</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review2.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Amelia Jones</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review3.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Silviia Garden</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/review2.png" class="img-fluid review-img" alt="Fast Burner">
+                            <div class="cust-details">
+                                <div class="review-name">Amelia Jones</div>
+                                <div class="review-position">Honorable Client</div>
+                            </div>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-quote-left"></i>
+                        <p>This stuff works, I don't even take the recommended dose and can feel effects, appetite reduced, dropped weight, I will definitely purchase again.</p>
+                        <ul class="list-inlline m-0 p-0 star-line">
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fast customers -->
+
+    <!-- Footer -->
+    <footer class="fast-footer">
+        <div class="container">
+            <div class="row">
+                <div class="signup-wrapper d-flex align-items-center">
+                    <div class="row w-100">
+                        <div class="col-md-8">
+                            <h3 class="signup-title">SignUp Newsletter Today</h3>
+                            <div class="signup-text">Enter your email address to subscribe our notification of our new post & features by our daily email.</div>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center">
+                            <div class="input-group signup-subscribe">
+                                <input type="text" class="form-control" placeholder="Enter email to subscribe">
+                                <button class="btn" type="button"><i class="fa-solid fa-right-long"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row footer-second">
+                <div class="col-lg-3">
+                    <img src="assets/images/footer-logo.png" class="img-fluid footer-logo" alt="Fast Burner">
+                    <div class="d-flex align-items-center justify-content-start">
+                        <div class="fast-support-icon">
+                            <i class="icon icon-support"></i>
+                        </div>
+                        <div class="fast-support-wrapper">
+                            <div class="fast-support-title">Got Question?</div>
+                            <div class="fast-support-phone"><a href="tel:+447911123456">+44 7911 123456 (900) 689-66</a></div>
+                        </div>
+                    </div>
+                    <div class="fast-contact-wrapper">
+                        <div class="fast-contact-title">Contact Info</div>
+                        <div class="d-flex align-items-center justify-content-start">
+                            <div class="fast-contact-icon">
+                                <i class="icon icon-geo"></i>
+                            </div>
+                            <div class="fast-contact-address">70 Washington Square South, New York, NY 10012, United States.</div>
+                        </div>
+                    </div>
+                    <ul class="list-inline fast-social-icon-wrapper">
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-fb"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-pinterest"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-youtube"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-insta"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="fast-footer-title">My Account</h2>
+                    <ul class="fast-footer-menu">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="#">Checkout</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Whishlist</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="fast-footer-title">Why Buy From Us</h2>
+                    <ul class="fast-footer-menu">
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Secure Shopping</a></li>
+                        <li><a href="#">Affiliate Programme</a></li>
+                        <li><a href="#">Group Sales</a></li>
+                        <li><a href="#">Privacy & Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="fast-footer-title">Recent Post</h2>
+                    <div class="fast-recent-post-wrapper">
+                        <div class="d-flex justify-content-start">
+                            <img src="assets/images/video_img.jpg" class="img-fluid" alt="Fast Burner">
+                            <div class="fast-recent-right-block">
+                                <a href="#" class="recent-post-title">10 tips for burn your body fats easier and faster</a>
+                                <div class="d-flex justify-content-between">
+                                    <div class="recent-post-date">25 December 2018</div>
+                                    <div class="recent-post-date">10 Comments</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fast-recent-post-wrapper">
+                        <div class="d-flex justify-content-start">
+                            <img src="assets/images/video_img.jpg" class="img-fluid" alt="Fast Burner">
+                            <div class="fast-recent-right-block">
+                                <a href="#" class="recent-post-title">50 Best Healthy Food Blogs For Clean & Lean Eating!</a>
+                                <div class="d-flex justify-content-between">
+                                    <div class="recent-post-date">30 January 2018</div>
+                                    <div class="recent-post-date">0 Comments</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
+
+
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../../cdn.jsdelivr.net/npm/%40popperjs/core%402.11.5/dist/umd/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+
+<!-- Mirrored from demo.cottic.com/html/fastburner/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Oct 2024 12:45:45 GMT -->
+</html>

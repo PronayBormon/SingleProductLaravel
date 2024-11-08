@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from demo.cottic.com/html/fastburner/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Oct 2024 12:45:56 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fast Burner</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link href="../../../cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fast-header fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/banner-logo.png" class="img-fluid logo" alt="Fast Burner">
+                </a>
+                <div class="navbar-toggler fast-burger-menu btn-primary-fast" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <div class="d-flex align-items-center justify-content-center burger-menu">
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about-us.html">About us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#">Store <i class="fa-solid fa-chevron-down ps-2"></i></a>
+                            <ul class="dropdown-menu dropdown-right">
+                                <li class="drop-menu-item">
+                                    <a href="product-list.html">Product List</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="product-detail.html">Product Detail</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="cart.html">My Cart</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="my-account.html">My Account</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="checkout.html">Checkout</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="login.html">Customer Login</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="registration.html">Customer Registration</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="blog.html">Blog <i class="fa-solid fa-chevron-down ps-2"></i></a>
+                            <ul class="dropdown-menu dropdown-right">
+                                <li class="drop-menu-item">
+                                    <a href="blog.html">Blog with right sidebar</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="blog-left-sidebar.html">Blog with left sidebar</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="blog-no-sidebar.html">Blog with no sidebar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">Contact us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#">Pages <i class="fa-solid fa-chevron-down ps-2"></i></a>
+                            <ul class="dropdown-menu dropdown-right">
+                                <li class="drop-menu-item">
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="registration.html">Registration Page</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="404.html">404 Page</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 login-menu d-flex align-items-center">
+                        <li class="nav-item login-divider">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#">Currency $</a>
+                            <ul class="dropdown-menu login-menu-dropdown">
+                                <li class="drop-menu-item active">
+                                    <a href="#">USD $</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="#">EUR €</a>
+                                </li>
+                                <li class="drop-menu-item">
+                                    <a href="#">Pound £</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fast-cart" href="#">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="cart-count d-flex align-items-center justify-content-center">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Right side overlay menu -->
+        <div class="offcanvas offcanvas-end fast-offcanvas" tabindex="-1" id="offcanvasRight">
+            <div class="offcanvas-header d-flex justify-content-end">
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="list-unstyled fast-overlay-menu">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about-us.html">About Us</a>
+                    </li>
+                    <li>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                  Shop
+                                </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled fast-inner-overlay-menu">
+                                        <li>
+                                            <a href="javascript:void(0)">My Cart</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Orders List</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Products</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                  Blog
+                                </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled fast-inner-overlay-menu">
+                                        <li>
+                                            <a href="blog.html">Standard Blog Post</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Video Format Post</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Gallery Format Post</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Audio Format Post</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="contact-us.html">Contact Us</a>
+                    </li>
+                    <li>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+                                  Pages
+                                </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled fast-inner-overlay-menu">
+                                        <li>
+                                            <a href="login.html">Login Page</a>
+                                        </li>
+                                        <li>
+                                            <a href="login.html">Registration Page</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Edit User Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="contact-us.html">Contact Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Search</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Offline Page</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">404 Page</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Right side overlay menu -->
+    </header>
+    <!-- Header -->
+
+    <!-- Bannner -->
+    <section class="banner about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <div class="text-center">
+                        <h2 class="banner-title">Checkout</h2>
+                        <nav aria-label="breadcrumb" class="d-flex justify-content-center fast-breadcrumb">
+                            <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bannner -->
+
+    <!-- Checkout -->
+    <div class="checkout-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="checkout-form-wrapper">
+                        <div class="row mb-3">
+                            <div class="col-lg-6">
+                                <h2 class="checkout-form-title">Contact information</h2>
+                            </div>
+                            <div class="col-lg-6 d-lg-flex justify-content-end">
+                                <p class="checkout-form-text d-flex align-items-center mb-0">Already have an account? <a href="#">Log in</a></p>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-12">
+                                <input class="form-control checkout-form-input" type="text" placeholder="Email or mobile phone number">
+                                <div class="form-check mt-3 checkout-form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Email me with news and offers
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="checkout-form-title">Billing Details</h2>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="firstname" class="form-label">First Name <span>*</span></label>
+                                    <input type="text" class="form-control checkout-form-input" id="firstname" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="lastname" class="form-label">Last Name <span>*</span></label>
+                                    <input type="text" class="form-control checkout-form-input" id="lastname" placeholder="Last Name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="companyname" class="form-label">Company Name <span>*</span></label>
+                                    <input type="text" class="form-control checkout-form-input" id="companyname" placeholder="Company Name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Address <span>*</span></label>
+                                    <input type="text" class="form-control checkout-form-input mb-3" id="address" placeholder="Address">
+                                    <input type="text" class="form-control checkout-form-input" id="apartment" placeholder="Apartment, etc">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="city" class="form-label">Town/City <span>*</span></label>
+                                    <input type="text" class="form-control checkout-form-input" id="city" placeholder="City">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="firstname" class="form-label">Country/region <span>*</span></label>
+                                    <select class="form-select checkout-form-input" aria-label="Default select example">
+                                        <option selected>India</option>
+                                        <option value="1">United States</option>
+                                        <option value="2">Netherlands</option>
+                                        <option value="3">Islands</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="postalcode" class="form-label">Postal Code <span>*</span></label>
+                                    <input type="text" class="form-control checkout-form-input" id="postalcode" placeholder="Postal Code">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-check mt-3 checkout-form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="shipaddress">
+                                    <label class="form-check-label" for="shipaddress">
+                                        Ship to a different address?
+                                    </label>
+                                </div>
+                                <div class="form-check my-3 checkout-form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="saveinfo">
+                                    <label class="form-check-label" for="saveinfo">
+                                        Save this information for next time
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="ordernotes" class="form-label">Order Notes <span>*</span></label>
+                                    <textarea class="form-control checkout-form-input" id="ordernotes" rows="3" placeholder="Notes about your order, e.g, special notes for delivery."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="list-inline checkout-btn-wrapper">
+                                    <li class="list-inline-item">
+                                        <a href="#" class="btn btn-primary-fast">Continue to Shipping</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#" class="btn btn-secondary-fast">Return to cart</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="order-summary-wrapper">
+                        <h2 class="checkout-form-title text-center">Your Order Summary</h2>
+                        
+                        <div class="order-card-details">
+                            <div class="d-flex align-items-center justify-content-between order-card-line">
+                                <div class="d-flex align-items-center order-card">
+                                    <img src="assets/images/video_img.jpg" class="img-fluid" alt="Fast burner">
+                                    <div class="order-card-content">
+                                        <h3 class="order-card-title">Fast burner</h3>
+                                        <div class="order-card-text">Fast burner</div>
+                                    </div>
+                                </div>
+                                <div>£65.00</div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between order-card-line">
+                                <div class="d-flex align-items-center order-card">
+                                    <img src="assets/images/video_img.jpg" class="img-fluid" alt="Fast burner">
+                                    <div class="order-card-content">
+                                        <h3 class="order-card-title">Fast burner</h3>
+                                        <div class="order-card-text">Fast burner</div>
+                                    </div>
+                                </div>
+                                <div>£85.00</div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between order-card-line">
+                                <div class="d-flex align-items-center order-card">
+                                    <img src="assets/images/video_img.jpg" class="img-fluid" alt="Fast burner">
+                                    <div class="order-card-content">
+                                        <h3 class="order-card-title">Fast burner</h3>
+                                        <div class="order-card-text">Fast burner</div>
+                                    </div>
+                                </div>
+                                <div>£70.00</div>
+                            </div>
+                        </div>
+
+                        <div class="fast-right-side px-0 my-4">
+                            <div class="input-group fast-blog-input-search">
+                                <input type="text" class="form-control" placeholder="Gift a card or discount code" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary text-white px-4 w-auto" type="button" id="button-addon2">Apply</button>
+                            </div>
+                        </div>
+
+                        <div class="order-total-wrapper">
+                            <div class="order-split-line"></div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div>Subtotal</div>
+                                <div>$860.00</div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>Shipping</div>
+                                <div>Calculated at next step</div>
+                            </div>
+                            <div class="order-split-line"></div>
+                            <div class="d-flex justify-content-between">
+                                <div>Total</div>
+                                <div>$860.00</div>
+                            </div>
+                        </div>
+
+                        <h2 class="checkout-form-title mt-3">Payment</h2>
+                        <ul class="list-inline checkout-btn-list">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-teritary-fast">Credit Card</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-teritary-fast">Bank Transfer</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-teritary-fast">Paypal</a>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn btn-primary-fast w-100 mt-3">Checkout Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Checkout -->
+
+    <!-- Footer -->
+    <footer class="fast-footer">
+        <div class="container">
+            <div class="row">
+                <div class="signup-wrapper d-flex align-items-center">
+                    <div class="row w-100">
+                        <div class="col-md-8">
+                            <h3 class="signup-title">SignUp Newsletter Today</h3>
+                            <div class="signup-text">Enter your email address to subscribe our notification of our new post & features by our daily email.</div>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center">
+                            <div class="input-group signup-subscribe">
+                                <input type="text" class="form-control" placeholder="Enter email to subscribe">
+                                <button class="btn" type="button"><i class="fa-solid fa-right-long"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row footer-second">
+                <div class="col-lg-3">
+                    <img src="assets/images/footer-logo.png" class="img-fluid footer-logo" alt="Fast Burner">
+                    <div class="d-flex align-items-center justify-content-start">
+                        <div class="fast-support-icon">
+                            <i class="icon icon-support"></i>
+                        </div>
+                        <div class="fast-support-wrapper">
+                            <div class="fast-support-title">Got Question?</div>
+                            <div class="fast-support-phone"><a href="tel:+447911123456">+44 7911 123456 (900) 689-66</a></div>
+                        </div>
+                    </div>
+                    <div class="fast-contact-wrapper">
+                        <div class="fast-contact-title">Contact Info</div>
+                        <div class="d-flex align-items-center justify-content-start">
+                            <div class="fast-contact-icon">
+                                <i class="icon icon-geo"></i>
+                            </div>
+                            <div class="fast-contact-address">70 Washington Square South, New York, NY 10012, United States.</div>
+                        </div>
+                    </div>
+                    <ul class="list-inline fast-social-icon-wrapper">
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-fb"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-pinterest"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-youtube"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="icon icon-insta"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="fast-footer-title">My Account</h2>
+                    <ul class="fast-footer-menu">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="#">Checkout</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Whishlist</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="fast-footer-title">Why Buy From Us</h2>
+                    <ul class="fast-footer-menu">
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Secure Shopping</a></li>
+                        <li><a href="#">Affiliate Programme</a></li>
+                        <li><a href="#">Group Sales</a></li>
+                        <li><a href="#">Privacy & Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="fast-footer-title">Recent Post</h2>
+                    <div class="fast-recent-post-wrapper">
+                        <div class="d-flex justify-content-start">
+                            <img src="assets/images/video_img.jpg" class="img-fluid" alt="Fast Burner">
+                            <div class="fast-recent-right-block">
+                                <a href="#" class="recent-post-title">10 tips for burn your body fats easier and faster</a>
+                                <div class="d-flex justify-content-between">
+                                    <div class="recent-post-date">25 December 2018</div>
+                                    <div class="recent-post-date">10 Comments</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fast-recent-post-wrapper">
+                        <div class="d-flex justify-content-start">
+                            <img src="assets/images/video_img.jpg" class="img-fluid" alt="Fast Burner">
+                            <div class="fast-recent-right-block">
+                                <a href="#" class="recent-post-title">50 Best Healthy Food Blogs For Clean & Lean Eating!</a>
+                                <div class="d-flex justify-content-between">
+                                    <div class="recent-post-date">30 January 2018</div>
+                                    <div class="recent-post-date">0 Comments</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
+
+
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../../cdn.jsdelivr.net/npm/%40popperjs/core%402.11.5/dist/umd/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+
+<!-- Mirrored from demo.cottic.com/html/fastburner/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 10 Oct 2024 12:45:56 GMT -->
+</html>

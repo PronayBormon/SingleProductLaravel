@@ -40,7 +40,7 @@
                             <div class="row mb-4">
                                 <div class="col-lg-12">
                                     <input class="form-control checkout-form-input" type="text" required name="mobile"
-                                        value="{{ $user->mobile }}" placeholder="Mobile number">
+                                        value="{{ $user->mobile }}" placeholder="01">
                                     @error('mobile')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -253,7 +253,7 @@
                             <div class="row mb-4">
                                 <div class="col-lg-12">
                                     <input class="form-control checkout-form-input" type="text" required name="mobile"
-                                        value="{{ old('mobile') }}" placeholder="Mobile number">
+                                        value="01{{ old('mobile') }}" placeholder="017000000">
                                     @error('mobile')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

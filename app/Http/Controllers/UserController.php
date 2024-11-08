@@ -23,6 +23,7 @@ class UserController extends Controller
     public function user_profile(Request $request)
     {
         $user = Auth::user();
+        
         $orders = Order::where('user_id', $user->id)->orderby('id', 'desc')->paginate(10);
         return view('user.profile', compact('user','orders'));
     }
@@ -43,7 +44,12 @@ class UserController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'mobile' => 'required|max:11|min:11',
+            'mobile'            => [
+                'required',
+                'string',
+                'regex:/^01\d{9}$/',  // Regex to ensure the number starts with '01' and has exactly 11 digits
+                'max:11',              // Enforces that the number should be at most 11 characters
+            ],
             'first_name' => 'required|string|max:255',
             'last_name' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:255',

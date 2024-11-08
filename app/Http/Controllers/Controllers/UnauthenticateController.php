@@ -195,11 +195,14 @@ class UnauthenticateController extends Controller
 
     public function create_order(Request $request)
     {
-        // dd($request->all());
-        // return false;
-        // Validate the request data
         $validatedData = $request->validate([
-            'mobile'            => 'required|string|max:11|min:11',
+            'mobile'            => [
+                'required',
+                'string',
+                'regex:/^01\d{9}$/',  // Regex to ensure the number starts with '01' and has exactly 11 digits
+                'max:11',              // Enforces that the number should be at most 11 characters
+            ],
+            // 'mobile'            => 'required|string|max:11|min:11',
             'first_name'        => 'required|string|max:50',
             'last_name'         => 'required|string|max:50',
             'address'           => 'required|string|max:100',
@@ -225,6 +228,8 @@ class UnauthenticateController extends Controller
      
         $trackingNumber = strtoupper(Str::random(10)); 
      
+        
+        $user = Auth::user()->id;
         $order = Order::create([
             'first_name'        => $validatedData['first_name'],
             'last_name'         => $validatedData['last_name'],
@@ -240,6 +245,7 @@ class UnauthenticateController extends Controller
             'total'             => $total,
             'tracking_id'       => $trackingNumber, // Add tracking number to order
             'payment_method'    => $request->payment_method, // Add tracking number to order
+            'user_id'    => $user, // Add tracking number to order
         ]);
     
         // Save order items

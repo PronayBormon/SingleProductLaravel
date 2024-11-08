@@ -24,8 +24,10 @@ class Order extends Model
         'shipping',
         'total',
         'status',
+        'remark',
         'payment_method',
         'payment_status',
+        'user_id',
     ];
 
     // Optionally define relationships

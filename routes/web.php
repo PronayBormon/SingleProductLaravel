@@ -54,6 +54,8 @@ Route::prefix('/admin')->middleware('auth','isAdmin')->group( function(){
     Route::delete('/pro_delete/{slug}', [ProductsController::class, 'delete_product'])->name('admin.delete-product');
     Route::get('/orders', [DashboardController::class, 'orders'])->name('admin.orders');
     Route::post('/order_update', [DashboardController::class, 'order_update'])->name('admin.order_update');
+    Route::post('/payment_update', [DashboardController::class, 'payment_update'])->name('admin.order_update');
+    Route::post('/order_recontact', [DashboardController::class, 'remark'])->name('admin.order_update');
 });
 
 // ==================  user ====================

@@ -93,7 +93,7 @@
                                                         <span class="badge bg-success">Delivered</span>
                                                     @endif
                                                 </td>
-                                                <td class="fw-bold">{{ $item->subtotal }} TK</td>
+                                                <td class="fw-bold">{{ $item->total }} TK</td>
                                             </tr>
                                         @endforeach
                                         {{-- <tr class="">

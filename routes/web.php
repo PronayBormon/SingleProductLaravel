@@ -45,17 +45,21 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 // ================= admin =============== 
 Route::prefix('/admin')->middleware('auth','isAdmin')->group( function(){
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/site-settings', [DashboardController::class, 'site_settings'])->name('admin.seting');    
+    Route::get('/site-settings', [DashboardController::class, 'site_settings'])->name('admin.seting');  
+
     Route::get('/products', [ProductsController::class, 'products'])->name('admin.products');
+    Route::get('/search_product', [ProductsController::class, 'productsSearch'])->name('search.product');
     Route::post('/add-products', [ProductsController::class, 'new_product'])->name('admin.add-products');
     Route::get('/add-product', [ProductsController::class, 'add_product'])->name('admin.add-product');
     Route::get('/products/edit/{id}', [ProductsController::class, 'edit_product'])->name('admin.add-product');
     Route::post('/update_product', [ProductsController::class, 'update_Product'])->name('admin.update-product');
     Route::delete('/pro_delete/{slug}', [ProductsController::class, 'delete_product'])->name('admin.delete-product');
+
     Route::get('/orders', [DashboardController::class, 'orders'])->name('admin.orders');
     Route::post('/order_update', [DashboardController::class, 'order_update'])->name('admin.order_update');
     Route::post('/payment_update', [DashboardController::class, 'payment_update'])->name('admin.order_update');
     Route::post('/order_recontact', [DashboardController::class, 'remark'])->name('admin.order_update');
+    Route::get('/search_order', [DashboardController::class, 'search_order'])->name('admin.order_update');
 });
 
 // ==================  user ====================

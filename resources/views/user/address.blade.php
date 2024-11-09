@@ -106,7 +106,7 @@
                                             <label for="mobile" class="form-label">Mobile <span>*</span></label>
                                             <input type="text" required class="form-control checkout-form-input"
                                                 value="{{ $user->mobile }}" name="mobile" id="mobile"
-                                                placeholder="mobile">
+                                                placeholder="01..">
                                             @error('mobile')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror

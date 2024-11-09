@@ -38,6 +38,24 @@
                         </ul>
                     </div>
                 @endif
+                <form action="{{url('admin/search_order')}}" method="GET">
+                    @csrf
+                    <div class="d-flex align-items-center justify-content-start">
+                        <div class="form-group m-1">
+                            <input type="text" name="search" placeholder="Search order...." class="form-control">                                
+                        </div>
+                        {{-- <div class="form-group m-1">
+                            <select name="status" id="" class="form-control">
+                                <option value="">All</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div> --}}
+                        <div class="form-group m-1">
+                            <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                        </div>
+                    </div>
+                </form>
                 <ul class="nav nav-pills m-t-30 m-b-30">
                     <li class=" nav-item"> <a href="#pending" class="nav-link active" data-bs-toggle="tab"
                             aria-expanded="false">Pending Orders({{ count($orders) }})</a> </li>
@@ -686,6 +704,8 @@
                     </div>
                     <div id="recontact" class="tab-pane ">
                         <div class="table-responsive">
+                            
+  
                             <table class="table table-hover no-wrap">
                                 <thead>
                                     <tr>

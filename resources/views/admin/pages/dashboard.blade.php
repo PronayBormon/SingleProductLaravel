@@ -26,8 +26,8 @@ $Products = Products::get();
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item active">Dashboard 1</li>
                     </ol>
-                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15 text-white ms-2"><i
-                            class="fa fa-plus-circle"></i> Create New</button>
+                    {{-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15 text-white ms-2"><i
+                            class="fa fa-plus-circle"></i> Create New</button> --}}
                 </div>
             </div>
         </div>

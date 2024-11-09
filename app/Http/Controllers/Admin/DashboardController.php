@@ -32,7 +32,25 @@ class DashboardController extends Controller
         $PaidDeliveredOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',7)->where('payment_status',1)->paginate(10);
         return view('admin.pages.orders.order-list', compact('orders','ConfirmOrders','CancelOrders','ReturnOrders','RecontactOrders','BookToCourierOrders','DeliveredOrders','unpaidDeliveredOrders','PaidDeliveredOrders'));
     }
-
+    public function search_order(Request $request)
+    {
+        $query = Order::orderBy('id', 'desc'); 
+        if ($request->has('search') && $request->search != '') {
+            $searchTerm = $request->search;
+    
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('tracking_id', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('first_name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('last_name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('mobile', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('status', 'like', '%' . $searchTerm . '%');  
+            });
+        }
+        
+        $orders = $query->paginate(10);        
+        return view('admin.pages.orders.order-search', compact('orders'));
+    }
+    
 
     public function order_update(Request $request)
     {

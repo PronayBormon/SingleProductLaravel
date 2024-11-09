@@ -44,7 +44,7 @@
                         @csrf
                         <div class="d-flex align-items-center justify-content-start">
                             <div class="form-group m-1">
-                                <input type="text" name="search" placeholder="Search Product...." class="form-control">                                
+                                <input type="text" name="search" value="{{old('search')}}" placeholder="Search Product...." class="form-control">                                
                             </div>
                             <div class="form-group m-1">
                                 <select name="status" id="" class="form-control">

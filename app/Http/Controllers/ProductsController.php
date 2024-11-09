@@ -15,6 +15,32 @@ class ProductsController extends Controller
         $products = Products::orderBy('id', 'desc')->paginate(10);
         return view('admin.pages.products.products', compact('products'));
     }
+    public function productsSearch(Request $request)
+    {
+        $query = Products::query();
+    
+        if ($request->has('search') && $request->search != '') {
+            $searchTerm = $request->search;
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('title', 'like', "%$searchTerm%")
+                  ->orWhere('description', 'like', "%$searchTerm%")
+                  ->orWhere('price', 'like', "%$searchTerm%");
+            });
+        }
+    
+        
+        // if ($request->has('status') && $request->status != '') {
+        //     $status = $request->status;
+        //     $query->where('status', $status);
+        // }
+        
+        $products = $query->orderBy('id', 'desc')->paginate(10);
+        
+        return view('admin.pages.products.products-search', compact('products'));
+    }
+    
+
+
     public function new_product(Request $request)
     {
         $request->validate([

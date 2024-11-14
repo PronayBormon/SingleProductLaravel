@@ -99,7 +99,7 @@
                                     <td>
                                         <div class="text-wrap"
                                             style="max-width: 200px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical;">
-                                            {!! $item->description !!}
+                                            <p>{!! $item->description !!}</p>
                                         </div>
                                     </td>
                                     <td>

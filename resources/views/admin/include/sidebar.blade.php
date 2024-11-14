@@ -8,8 +8,9 @@
                     <img src="/user.webp" alt="user-img" class="img-circle">
                 </div>
                 <div class="dropdown">
-                    <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" style="text-transform: capitalize"
-                        data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}} <span class="caret"></span></a>
+                    <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu"
+                        style="text-transform: capitalize" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                     <div class="dropdown-menu animated flipInY">
                         {{-- <!-- text-->
                         <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
@@ -60,6 +61,39 @@
                     </a>
                 </li>
                 {{-- <li>
+                    <a class="waves-effect waves-dark" href="{{url('admin/forntend-setings')}}">
+                        <i class="fa-solid fa-box"></i>
+                        <span class="hide-menu">Frontend Settings </span>
+                    </a>
+                </li> --}}
+                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
+                            class="ti-layout-grid2"></i><span class="hide-menu">Frontend Settings</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                aria-expanded="false">
+                                <span class="hide-menu">Homepage Settings</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="{{ url('admin/banner-settings') }}">Top Banner</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('admin/WhyChooseus-settings') }}">Why Choose Us</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('admin/about-us-settings') }}">Know About us </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('admin/features') }}">Features</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                {{-- <li>
                     <a class="waves-effect waves-dark" href="{{ url('/admin/site-settings') }}">
                         <i class="fa-solid fa-sitemap"></i>
                         <span class="hide-menu">Site Settings </span>
@@ -67,7 +101,7 @@
                 </li> --}}
 
 
-{{-- 
+                {{-- 
 
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                             class="ti-layout-grid2"></i><span class="hide-menu">Apps</span></a>

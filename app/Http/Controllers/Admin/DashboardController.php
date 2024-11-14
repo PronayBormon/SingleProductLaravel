@@ -21,15 +21,16 @@ class DashboardController extends Controller
 
     public function orders()
     {
-        $orders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',1)->paginate(10);
-        $ConfirmOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',2)->paginate(10);
-        $CancelOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',3)->paginate(10);
-        $ReturnOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',4)->paginate(10);
-        $RecontactOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',5)->paginate(10);
-        $BookToCourierOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',6)->paginate(10);
-        $DeliveredOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',7)->paginate(10);
-        $unpaidDeliveredOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',7)->where('payment_status',0)->paginate(10);
-        $PaidDeliveredOrders = Order::with('orderItems')->orderBy('id', 'desc')->where('status',7)->where('payment_status',1)->paginate(10);
+        $orders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',1)->paginate(10);
+        $ConfirmOrders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',2)->paginate(10);
+        $CancelOrders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',3)->paginate(10);
+        $ReturnOrders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',4)->paginate(10);
+        $RecontactOrders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',5)->paginate(10);
+        $BookToCourierOrders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',6)->paginate(10);
+        $DeliveredOrders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',7)->paginate(10);
+        $unpaidDeliveredOrders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',7)->where('payment_status',0)->paginate(10);
+        $PaidDeliveredOrders = Order::with('orderItems','user')->orderBy('id', 'desc')->where('status',7)->where('payment_status',1)->paginate(10);
+
         return view('admin.pages.orders.order-list', compact('orders','ConfirmOrders','CancelOrders','ReturnOrders','RecontactOrders','BookToCourierOrders','DeliveredOrders','unpaidDeliveredOrders','PaidDeliveredOrders'));
     }
     public function search_order(Request $request)
@@ -47,7 +48,7 @@ class DashboardController extends Controller
             });
         }
         
-        $orders = $query->paginate(10);        
+        $orders = $query->with('user')->paginate(10);        
         return view('admin.pages.orders.order-search', compact('orders'));
     }
     
@@ -58,6 +59,8 @@ class DashboardController extends Controller
         $order = Order::where('id', $id)->first();
         
         $order->update([
+            'remark' => $request->remark,
+            'payment_status' => $request->payment_status,
             'status' => $request->status,
         ]);
         return redirect()->back()->with('message', 'Order has been update successfully');
@@ -68,6 +71,7 @@ class DashboardController extends Controller
         $order = Order::where('id', $id)->first();
         
         $order->update([
+            'remark' => $request->remark,
             'payment_status' => $request->payment_status,
             'status' => $request->status,
         ]);
@@ -80,6 +84,7 @@ class DashboardController extends Controller
         
         $order->update([
             'remark' => $request->remark,
+            'payment_status' => $request->payment_status,
             'status' => $request->status,
         ]);
         return redirect()->back()->with('message', 'Order has been update successfully');

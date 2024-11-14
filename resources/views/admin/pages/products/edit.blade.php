@@ -1,4 +1,7 @@
 @extends('admin.master')
+@section('css')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+@endsection
 @section('content')
     <div class="container-fluid">
         <!-- ============================================================== -->
@@ -55,8 +58,8 @@
                                     </div>
                                 @endif
                                 <div class="form-floating mb-3">
-                                    <input type="text" value="{{ $product->id }}" hidden class="form-control" name="id"
-                                        id="id" placeholder="ID" required>
+                                    <input type="text" value="{{ $product->id }}" hidden class="form-control"
+                                        name="id" id="id" placeholder="ID" required>
                                     <input type="text" value="{{ $product->title }}" class="form-control" name="title"
                                         id="title" placeholder="Product Title" required>
                                     <label for="title" class="form-label">Product Title</label>
@@ -88,33 +91,34 @@
                                     <label for="quantity" class="form-label">Quantity</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <textarea name="short_desc" id="short_desc" class="form-control" cols="30" rows="3"
+                                    <textarea name="short_desc" id="short_desc" class="form-control summernoteSmall" cols="30" rows="3"
                                         placeholder="Short Description">{!! $product->short_description !!}</textarea>
                                     <label for="short_desc" class="form-label">Short Description</label>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="mb-2" for="description">Description</label>
-                                    <textarea class="form-control" name="description" id="description" cols="30" rows="5"
+                                    <textarea class="form-control bg-white summernote" name="description" id="description" cols="30" rows="5"
                                         placeholder="Description">{!! $product->description !!}</textarea>
                                 </div>
                                 <div class="card mb-3">
-                                    <div class="card-body">
+                                    <img id="imagePreview" src="" width="80" alt="Image Preview"
+                                        class="img-fluid"  >
+                                    <div class="card-body px-0">
                                         <h4 class="card-title">Product Image</h4>
                                         <label for="input-file-now" class="form-label">Upload your product image</label>
-                                        <input type="file" name="image" id="input-file-now" class="form-control"
+                                        <input type="file" name="image" id="imageInput" class="form-control"
                                             accept="image/*" />
                                     </div>
-                                    <img id="image-preview" src="" width="200" alt="Image Preview"
-                                        class="img-fluid" style="display: none;">
                                 </div>
-                                
+
                                 <div class="form-floating mb-3">
                                     <select name="status" id="status" value="{{ $product->status }}"
                                         class="form-control">
                                         <option value="0" selected disabled>Product Status</option>
                                         <option value="0" {{ $product->status == '0' ? 'selected' : '' }}> Inactive
                                         </option>
-                                        <option value="1" {{ $product->status == '1' ? 'selected' : '' }}> Active</option>
+                                        <option value="1" {{ $product->status == '1' ? 'selected' : '' }}> Active
+                                        </option>
                                     </select>
                                     <label for="status" class="form-label">Product Status</label>
                                 </div>
@@ -127,4 +131,29 @@
 
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+    <script>
+        // Image preview for the image input
+        $('#imageInput').change(function(e) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $('#imagePreview').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
+        $(function() {
+            $('.summernote').summernote({
+                height: 350,
+                focus: false,
+            });
+            $('.summernoteSmall').summernote({
+                height: 150,
+                // minHeight: 30vh,
+                // maxHeight: 50vh,
+                focus: false,
+            });
+        });
+    </script>
 @endsection

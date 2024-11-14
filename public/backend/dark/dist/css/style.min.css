@@ -38300,7 +38300,8 @@ html body .select2-dropdown,
 html body .wizard-content .wizard.wizard-circle>.steps .step,
 html body .wizard-content .wizard>.steps .step,
 html body select {
-  background:#272c36
+  background:#272c36;
+  color: #fff;
 }
 html body .bootstrap-switch .bootstrap-switch-label,
 html body .bootstrap-tagsinput input,

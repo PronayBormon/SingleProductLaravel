@@ -58,14 +58,13 @@
                             <tr>
                                 <th>Order ID</th>
                                 <th>Tracking ID</th>
-                                <th>Name</th>
-                                <th>Mobile</th>
-                                <th>City</th>
-                                <th class="text-center">Payment Status</th>
-                                <th class="text-center">Status</th>
+                                <th>Customer Details</th>
+                                <th>Address</th>
                                 <th>Subtotal</th>
-                                <th>Shipping</th>
-                                <th>Total</th>
+                                <th>Payment</th>
+                                <th>Payment Type</th>
+                                <th>Order Note</th>
+                                <th>Remark</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -74,39 +73,61 @@
                                 <tr>
                                     <td>{{ $order->id }}</td>
                                     <td>{{ $order->tracking_id }}</td>
-                                    <td>{{ $order->first_name }} {{ $order->last_name }}</td>
-                                    <td>{{ $order->mobile }}</td>
-                                    <td>{{ $order->city }}</td>
-                                    <td class="text-center">
-                                        @if ($order->payment_status == 1)
-                                            <span class="badge bg-success">Paid</span>
-                                        @elseif($order->payment_status == 0)
-                                            <span class="badge bg-danger">Unpaid</span>
-                                            @endif
+                                    <td>
+                                        <p class="mb-1"><Strong>Name: </Strong>
+                                            {{ $order->first_name }}
+                                            {{ $order->last_name }}</p>
+                                        <p class="mb-1"><strong>Mobile: </strong>{{ $order->mobile }}
+                                        </p>
+                                        <hr>
+                                        <p class="mb-1"><Strong>ID: </Strong>
+                                            {{ $order->user ? $order->user->id : 'Guest User' }} </p>
+                                        <p class="mb-1"><Strong>Name: </Strong>
+                                            {{ $order->user ? $order->user->name : 'Guest User' }} </p>
+                                        <p class="mb-1"><strong>Email:
+                                            </strong>{{ $order->user ? $order->user->email : 'Guest User' }}
+                                        </p>
+
                                     </td>
-                                    <td class="text-center">
-                                        @if ($order->status == 1)
-                                            <span class="badge bg-warning">New Orders</span>
-                                        @elseif($order->status == 2)
-                                            <span class="badge bg-success">Confirmed</span>
-                                        @elseif($order->status == 3)
-                                            <span class="badge bg-danger">Cancelled</span>
-                                        @elseif($order->status == 4)
-                                            <span class="badge bg-info">Returned</span>
-                                        @elseif($order->status == 5)
-                                            <span class="badge bg-secondary">Recontact</span>
-                                        @elseif($order->status == 6)
-                                            <span class="badge bg-primary">Booked to Courier</span>
-                                        @elseif($order->status == 7)
-                                            <span class="badge bg-success">Delivered</span> 
+                                    <td>
+                                        <p class="mb-1"><Strong>Address: </Strong>
+                                            {{ $order->address }} </p>
+                                        <p class="mb-1">{{ $order->address_line }},
+                                            {{ $order->postal_code }}
+                                        </p>
+                                        <p class="mb-1">{{ $order->city }},Bangladesh</p>
+                                    </td>
+                                    <td>
+                                        <p class="mb-1"><strong>Item
+                                                Total: </strong>{{ number_format($order->subtotal, 2) }} TK
+                                        </p>
+                                        <p class="mb-1">
+                                            <strong>Shipping: </strong>{{ number_format($order->shipping, 2) }}
+                                            TK
+                                        </p>
+                                        <p class="mb-1"><strong>Sub total: </strong>
+                                            {{ number_format($order->total, 2) }} TK</p>
+                                    </td>
+                                    <td>
+                                        @if ($order->payment_status == 1)
+                                            <span class="badge bg-success text-white fw-bold">Paid</span>
                                         @else
-                                            <span class="badge bg-dark">Unknown</span>
+                                            <span class="badge bg-danger text-white fw-bold">Unpaid</span>
                                         @endif
                                     </td>
-                                    
-                                    <td>{{ number_format($order->subtotal, 2) }} TK</td>
-                                    <td>{{ number_format($order->shipping, 2) }} TK</td>
-                                    <td>{{ number_format($order->total, 2) }} TK</td>
+                                    <td>{{ $order->payment_method }}</td>
+                                    <td>
+                                        <div class="text-wrap"
+                                            style="width: 230px;height:150px; overflow-y: auto; border: 1px solid;padding:3px; scrollbar-width: 2px;">
+                                            {{ $order->order_note }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-wrap"
+                                            style="width: 230px;height:150px; overflow-y: auto; border: 1px solid;padding:3px; scrollbar-width: 2px;">
+                                            {{ $order->remark }}
+                                        </div>
+                                    </td>
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-primary" data-bs-toggle="modal"
@@ -128,12 +149,13 @@
                                                             data-bs-dismiss="modal" aria-label="Close"></i>
                                                         <form action="{{ url('/admin/order_update') }}" method="POST">
                                                             @csrf
-                                                            <h5>Update Order and payment status</h5>
+                                                            <h5> New orders</h5>
                                                             <hr>
+
                                                             <div class="mb-3">
                                                                 <input type="hidden" name="id"
                                                                     value="{{ $order->id }}">
-                                                                {{-- <label for="" class="mb-2">Payemnt
+                                                                <label for="" class="mb-2">Payemnt
                                                                     status</label>
                                                                 <select name="payment_status" id=""
                                                                     class="form-control w-100 d-block mb-3">
@@ -143,18 +165,20 @@
                                                                     <option value="1"
                                                                         @if ($order->payment_status == 1) selected @endif>
                                                                         Paid</option>
-                                                                </select> --}}
+                                                                </select>
                                                                 <label for="" class="mb-2">Order
                                                                     status</label>
                                                                 <select name="status" id=""
-                                                                    class="form-control w-100 d-block">
-                                                                    @foreach ([1 => 'Pending', 2 => 'Confirm', 3 => 'Cancel', 4 => 'Return', 5 => 'Recontact', 6 => 'Book to the courier', 7 => 'Delivered'] as $key => $status)
+                                                                    class="form-control w-100 d-block mb-3">
+                                                                    @foreach ([1 => 'New order', 2 => 'Confirm', 3 => 'Cancel', 4 => 'Return', 5 => 'Recontact', 6 => 'Book to the courier', 7 => 'Delivered'] as $key => $status)
                                                                         <option value="{{ $key }}"
-                                                                            @if ($order->status == $key) selected disabled @endif>
+                                                                            @if ($order->status == $key) selected @endif>
                                                                             {{ $status }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select>
+                                                                <label for="remark" class="d-block mb-2">Remark</label>
+                                                                <textarea name="remark" id="remark" cols="30" rows="6" class="form-control mb-3">{{ $order->remark }}</textarea>
                                                             </div>
                                                             <div>
                                                                 <button type="submit"
@@ -179,10 +203,13 @@
                                                         <h1 class="text-center">Invoice</h1>
                                                         <hr>
                                                         <h3>Tracking Id : {{ $order->tracking_id }}</h3>
-                                                        <p class="mb-0">Customer Name: {{ $order->first_name }}
+                                                        <p class="mb-0">Customer Name:
+                                                            {{ $order->first_name }}
                                                             {{ $order->last_name }}</p>
-                                                        <p class="mb-0">Address: {{ $order->address }}</p>
-                                                        <p class="mb-0">City/Town: {{ $order->city }}</p>
+                                                        <p class="mb-0">Address: {{ $order->address }}
+                                                        </p>
+                                                        <p class="mb-0">City/Town: {{ $order->city }}
+                                                        </p>
                                                         <p>Country: Bangladesh</p>
 
                                                         @foreach ($order->orderItems as $item)
@@ -197,7 +224,8 @@
                                                                     </div>
                                                                     <p class="text-end">
                                                                         {{ number_format($item->price, 2) }}TK-
-                                                                        x{{ $item->quantity }} - Subtotal:<span
+                                                                        x{{ $item->quantity }} -
+                                                                        Subtotal:<span
                                                                             class="text-dark fw-bold">{{ number_format($item->subtotal, 2) }}
                                                                             TK</span> </p>
                                                                 </div>
@@ -205,9 +233,11 @@
                                                         @endforeach
                                                         <hr>
                                                         <p class="fw-bold text-end mb-1">Shipping:
-                                                            {{ number_format($order->shipping, 2) }} TK</p>
+                                                            {{ number_format($order->shipping, 2) }} TK
+                                                        </p>
                                                         <p class="fw-bold text-end mb-1">Item total:
-                                                            {{ number_format($order->subtotal, 2) }} TK</p>
+                                                            {{ number_format($order->subtotal, 2) }} TK
+                                                        </p>
                                                         <hr>
                                                         <p class="fw-bold text-end">Subtotal:
                                                             {{ number_format($order->total, 2) }} TK</p>

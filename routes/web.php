@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Controllers\UnauthenticateController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductsController;
 
 // Route::get('/', function () {
@@ -60,6 +61,19 @@ Route::prefix('/admin')->middleware('auth','isAdmin')->group( function(){
     Route::post('/payment_update', [DashboardController::class, 'payment_update'])->name('admin.order_update');
     Route::post('/order_recontact', [DashboardController::class, 'remark'])->name('admin.order_update');
     Route::get('/search_order', [DashboardController::class, 'search_order'])->name('admin.order_update');
+    
+    Route::get('/banner-settings', [FrontendController::class, 'banner']);
+    Route::post('/banner-update', [FrontendController::class, 'banner_update']);
+    Route::get('/WhyChooseus-settings', [FrontendController::class, 'WhyChooseus']);
+    Route::post('/whychoose-update', [FrontendController::class, 'WhyChooseusUpdate']);
+    Route::get('/about-us-settings', [FrontendController::class, 'knowAboutus']);
+    Route::post('/know-ab-update', [FrontendController::class, 'knowAboutusUpdate']);
+    Route::post('/kn-about-list', [FrontendController::class, 'abListupdate']);
+    Route::delete('/benifits-delete', [FrontendController::class, 'deleteBenifits']);
+    Route::get('/features', [FrontendController::class, 'features']);
+    Route::post('/features-update', [FrontendController::class, 'features_update']);
+    Route::post('/add_features', [FrontendController::class, 'store_features']);
+    Route::delete('/features-delete', [FrontendController::class, 'deleteFeature']);
 });
 
 // ==================  user ====================

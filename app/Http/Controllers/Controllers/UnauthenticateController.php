@@ -229,7 +229,14 @@ class UnauthenticateController extends Controller
         $trackingNumber = strtoupper(Str::random(10)); 
      
         
-        $user = Auth::user()->id;
+        // $user = Auth::user()->id;
+        if (Auth::check()) {
+            // Authenticated user
+            $user = Auth::user()->id;
+        } else {
+            // Guest user
+            $user = null;  // Or you can store the guest's information temporarily
+        }
         $order = Order::create([
             'first_name'        => $validatedData['first_name'],
             'last_name'         => $validatedData['last_name'],

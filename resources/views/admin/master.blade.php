@@ -13,10 +13,14 @@
 	<title>FutureGenIT - The Future of Information technology</title>
 	<link href="/backend/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
 	<link href="/backend/assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
-
+	@yield('css')
 	<link href="/backend/assets/fontawesome/css/all.min.css" rel="stylesheet">
 	<link href="/backend/dark/dist/css/style.min.css" rel="stylesheet">
-	<link href="/backend/dark/dist/css/pages/dashboard1.css" rel="stylesheet"> 
+	<style>
+        ..note-editor.note-frame .note-editing-area .note-editable{
+            color: #fff!important;
+        }
+    </style>
 </head>
 
 <body class="skin-default-dark fixed-layout">
@@ -139,6 +143,8 @@
 
 
 	@yield('script')
+
+
 </body>
 
 </html>

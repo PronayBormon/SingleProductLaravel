@@ -13,10 +13,15 @@ $products = Products::orderby('id', 'desc')->where('status', 1)->limit(2)->get()
                             features by our daily email.</div>
                     </div>
                     <div class="col-md-4 d-flex align-items-center">
-                        <div class="input-group signup-subscribe">
-                            <input type="text" class="form-control" placeholder="Enter email to subscribe">
-                            <button class="btn" type="button"><i class="fa-solid fa-right-long"></i></button>
-                        </div>
+                        {{-- subscribe --}}
+                        {{-- subscribe --}}
+                        <form action="{{ url('/subscribe') }}" method="post" class="">
+                            @csrf 
+                            <div class="input-group signup-subscribe">
+                                <input type="email" class="form-control" name="email" placeholder="Enter email to subscribe" required>
+                                <button class="btn" type="submit"><i class="fa-solid fa-right-long"></i></button>
+                            </div>
+                        </form>                        
                     </div>
                 </div>
             </div>
@@ -66,9 +71,9 @@ $products = Products::orderby('id', 'desc')->where('status', 1)->limit(2)->get()
             <div class="col-lg-3">
                 <h2 class="fast-footer-title">My Account</h2>
                 <ul class="fast-footer-menu">
-                    <li><a href="{{ url('/user-profile')}}">Profile</a></li>
-                    <li><a href="{{url('cart')}}">Cart</a></li>
-                    <li><a href="{{url('checkout')}}">Checkout</a></li>
+                    <li><a href="{{ url('/user-profile') }}">Profile</a></li>
+                    <li><a href="{{ url('cart') }}">Cart</a></li>
+                    <li><a href="{{ url('checkout') }}">Checkout</a></li>
                     {{-- <li><a href="#">Order Tracking</a></li>
                     <li><a href="#">Whishlist</a></li> --}}
                 </ul>
@@ -76,28 +81,30 @@ $products = Products::orderby('id', 'desc')->where('status', 1)->limit(2)->get()
             <div class="col-lg-3">
                 <h2 class="fast-footer-title">Why Buy From Us</h2>
                 <ul class="fast-footer-menu">
-                    <li><a href="{{url('/')}}">Home</a></li>
-                    <li><a href="{{url('about')}}">About</a></li>
-                    <li><a href="{{ url('contact')}}">Contact</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('about') }}">About</a></li>
+                    <li><a href="{{ url('contact') }}">Contact</a></li>
                     {{-- <li><a href="#">Group Sales</a></li>
                     <li><a href="#">Privacy & Policy</a></li> --}}
                 </ul>
             </div>
             <div class="col-lg-3">
                 <h2 class="fast-footer-title">Recent Post</h2>
-                @foreach($products as $item)
-                <div class="fast-recent-post-wrapper">
-                    <div class="d-flex justify-content-start">
-                        <img src="/products/{{$item->image}}" style="width: 60px; height: 60px;" class="img-fluid" alt="Fast Burner">
-                        <div class="fast-recent-right-block">
-                            <a href="{{url('/product-details/'.$item->slug)}}" class="recent-post-title">{{$item->title}}</a>
-                            <div class="d-flex justify-content-between">
-                                {{-- <div class="recent-post-date">25 December 2018</div>
+                @foreach ($products as $item)
+                    <div class="fast-recent-post-wrapper">
+                        <div class="d-flex justify-content-start">
+                            <img src="/products/{{ $item->image }}" style="width: 60px; height: 60px;"
+                                class="img-fluid" alt="Fast Burner">
+                            <div class="fast-recent-right-block">
+                                <a href="{{ url('/product-details/' . $item->slug) }}"
+                                    class="recent-post-title">{{ $item->title }}</a>
+                                <div class="d-flex justify-content-between">
+                                    {{-- <div class="recent-post-date">25 December 2018</div>
                                 <div class="recent-post-date">10 Comments</div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

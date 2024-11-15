@@ -26,12 +26,8 @@ Route::post('/add-to-cart', [UnauthenticateController::class, 'addToCart'])->nam
 Route::get('/checkout', [UnauthenticateController::class, "checkout"])->name('checkout');
 Route::post('/new-order', [UnauthenticateController::class, "create_order"])->name('add.order');
 Route::get('/cartitems', [UserController::class, 'getCartCount'])->name('cartitems');
-
-
-
-
-
-
+Route::post('/subscribe', [UnauthenticateController::class, 'subscribe']);
+Route::post('/contact', [UnauthenticateController::class, 'Contacts']);
 
 Route::get('/login', [AuthController::class, "login"])->middleware('isGuest')->name('login');
 Route::get('/registerAPI', [AuthController::class, "registerTest"])->name('reg');
@@ -87,10 +83,14 @@ Route::prefix('/admin')->middleware('auth','isAdmin')->group( function(){
     Route::post('/essential_benifits-update', [FrontendController::class, 'EsbenifitsUpdate']);
     Route::post('/add_esbenifits', [FrontendController::class, 'add_esbenifits']);
     Route::delete('/esbenifits-delete', [FrontendController::class, 'deleteEsbenifits']);
-
     
     Route::get('/about-us', [FrontendController::class, 'about_us']);
     Route::post('/about_update', [FrontendController::class, 'about_us_update']);
+    Route::get('/subs&contact', [FrontendController::class, 'subsAndContact']);
+
+    Route::put('/update-setings', [FrontendController::class, 'SetingsUpdate']);
+
+
 
 });
 

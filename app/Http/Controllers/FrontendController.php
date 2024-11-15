@@ -15,6 +15,7 @@ use App\Models\EssBenifits;
 use App\Models\Essential;
 use App\Models\About;
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
@@ -400,8 +401,75 @@ class FrontendController extends Controller
             return redirect()->back()->with('message', 'About update successfully');
         }
     }
-    public function contact_us()
+    public function subsAndContact(Request $request)
     {
-        return view('admin.pages.settings.contact.contact-us');
+        return view('admin.pages.subs-contact.subs');
+    }
+    public function SetingsUpdate(Request $request)
+    {
+        // Validate the input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'address' => 'required|string',
+            'phone' => 'nullable|string|max:20',
+            'telephone' => 'nullable|string|max:20',
+            'email' => 'required|email|max:255',
+            'email_two' => 'nullable|email|max:255',
+            'facebook' => 'nullable|url',
+            'whatsapp' => 'nullable|string|max:20',
+            'twitter' => 'nullable|url',
+            'instagram' => 'nullable|url',
+            'linkedin' => 'nullable|url',
+            'about_us' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Optional image upload
+        ]);
+
+        // Find the record by ID
+        $record = ContactUs::first();
+
+        // dd($$record);
+        // Handle file upload if a new logo is provided
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $logoName = time() . '.' . $logo->getClientOriginalExtension();
+            $logo->move(public_path('uploads'), $logoName);
+            $logoPath = 'uploads/' . $logoName;
+
+            // Update with logo
+            $record->update([
+                'logo' => $logoPath,
+                'name' => $request->name,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'telephone' => $request->telephone,
+                'email' => $request->email,
+                'email_two' => $request->email_two,
+                'facebook' => $request->facebook,
+                'whatsapp' => $request->whatsapp,
+                'twitter' => $request->twitter,
+                'instagram' => $request->instagram,
+                'linkedin' => $request->linkedin,
+                'about_us' => $request->about_us,
+            ]);
+        } else {
+            // Update without changing logo
+            $record->update([
+                'name' => $request->name,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'telephone' => $request->telephone,
+                'email' => $request->email,
+                'email_two' => $request->email_two,
+                'facebook' => $request->facebook,
+                'whatsapp' => $request->whatsapp,
+                'twitter' => $request->twitter,
+                'instagram' => $request->instagram,
+                'linkedin' => $request->linkedin,
+                'about_us' => $request->about_us,
+            ]);
+        }
+
+        // Redirect with success message
+        return redirect()->back()->with('message', 'Record updated successfully!');
     }
 }

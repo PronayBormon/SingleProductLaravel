@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,7 +16,8 @@ class DashboardController extends Controller
         return view('admin.pages.dashboard');
     }
     public function site_settings(){
-        return view('admin.pages.webseting');
+        $contact = ContactUs::first();
+        return view('admin.pages.webseting', compact('contact'));
     }
 
 

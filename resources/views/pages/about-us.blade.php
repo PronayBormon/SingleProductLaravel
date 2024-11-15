@@ -26,13 +26,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-3">
-                    <h2 class="about-us-title">Know about the <br>FastBurner</h2>
-                    <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis vulputate rhoncus vel dui.</p>
-                    <a href="#" class="btn btn-primary-fast">Read More</a>
+                    <h2 class="about-us-title">{{$About->title}} <br>{{$About->title_two}}</h2>
+                    <p class="pb-3">{!!$About->description!!}</p>
+                    <a href="{{url('/store')}}" class="btn btn-primary-fast">Shop More</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="fast-tile-block-img-wrapper">
-                        <img src="/frontend/assets/images/about-us-section_img.jpg" class="img-fluid" alt="Fast burner">
+                        <img src="/{{$About->image}}" class="img-fluid" alt="Fast burner">
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
     </section>
     <!-- About tile -->
 
-    <!-- Partners -->
+    {{-- <!-- Partners -->
     <div class="fast-partners">
         <div class="container">
             <div class="row">
@@ -211,7 +211,7 @@
             </div>
         </div>
     </section>
-    <!-- Essential features -->
+    <!-- Essential features --> --}}
 
 
 @endsection

@@ -1,6 +1,5 @@
 @extends('master')
 @section('content')
-
     <!-- Bannner -->
     <section class="banner about-us">
         <div class="container">
@@ -10,8 +9,9 @@
                         <h2 class="banner-title">Contact Us</h2>
                         <nav aria-label="breadcrumb" class="d-flex justify-content-center fast-breadcrumb">
                             <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="{{url('/')}}"><i class="fa-solid fa-house"></i> Home</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa-solid fa-house"></i>
+                                        Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
                             </ol>
                         </nav>
                     </div>
@@ -77,32 +77,36 @@
                     </ul>
                 </div>
                 <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <input class="form-control fast-contact-form-input" type="text" placeholder="First Name">
+                    <form action="{{ url('contact') }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input class="form-control fast-contact-form-input" type="text" name="first_name" required placeholder="First Name">
+                            </div>
+                            <div class="col-lg-6">
+                                <input class="form-control fast-contact-form-input" type="text" name="last_name" required placeholder="Last Name">
+                            </div>
                         </div>
-                        <div class="col-lg-6">
-                            <input class="form-control fast-contact-form-input" type="text" placeholder="Last Name">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input class="form-control fast-contact-form-input" type="text" name="phone" required placeholder="Your Phone">
+                            </div>
+                            <div class="col-lg-6">
+                                <input class="form-control fast-contact-form-input" type="email" name="email" required placeholder="Your Email">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <input class="form-control fast-contact-form-input" type="text" placeholder="Your Phone">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea class="form-control fast-contact-form-input" name="message" required placeholder="Write Message" id="exampleFormControlTextarea1"
+                                    rows="3"></textarea>
+                            </div>
                         </div>
-                        <div class="col-lg-6">
-                            <input class="form-control fast-contact-form-input" type="email" placeholder="Your Email">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-primary-fast">Send Message</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <textarea class="form-control fast-contact-form-input" placeholder="Write Message" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <a href="#" class="btn btn-primary-fast">Send Message</a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -111,7 +115,9 @@
 
     <!-- Map -->
     <div class="fast-contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583090278!2d-74.1197637963364!3d40.697663748629545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1670753378947!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583090278!2d-74.1197637963364!3d40.697663748629545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1670753378947!5m2!1sen!2sin"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <!-- Map -->
 

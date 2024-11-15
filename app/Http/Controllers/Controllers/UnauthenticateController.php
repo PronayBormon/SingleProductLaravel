@@ -5,22 +5,59 @@ namespace App\Http\Controllers\Controllers;
 use App\Models\Order;
 use App\Models\Products;
 use App\Models\OrderItem;
+
+
+
+use App\Models\Banner;
+use App\Models\WorkStep;
+use App\Models\Feature;
+use App\Models\WhyChoose;
+use App\Models\KnowAboutUs;
+use App\Models\FeaturesList;
+use App\Models\ProductBenifits;
+use App\Models\WorkingStep;
+use App\Models\EssBenifits;
+use App\Models\Essential;
+use App\Models\About;
+
+
+
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Subscribe;
 use Illuminate\Support\Facades\Auth;
 
 class UnauthenticateController extends Controller
 {
     public function index()
     {
+        $Banner = Banner::first();
+
+        $WhyChoose = WhyChoose::first();
+
+        $Feature = Feature::first();
+        $FeaturesList = FeaturesList::orderby('id', 'desc')->get();
+
+        $KnowAboutUs = KnowAboutUs::first();
+        $ProductBenifits = ProductBenifits::get();
+
+        $WorkStep = WorkStep::first();
+        $WorkingStep = WorkingStep::get();
+
+        $EssBenifits = EssBenifits::first();
+        $Essential = Essential::get();
+
+        $About = About::first();
+
         $user = Auth::user();
-        return view("pages.index", compact('user'));
+        return view("pages.index", compact('user','About','Essential','EssBenifits','WorkingStep','ProductBenifits','FeaturesList','KnowAboutUs','WhyChoose','Feature','WorkStep','Banner'));
     }
     public function about()
     {
+        $About = About::first();
         $user = Auth::user();
-        return view("pages.about-us", compact('user'));
+        return view("pages.about-us", compact('user','About'));
     }
     public function contact()
     {
@@ -273,6 +310,41 @@ class UnauthenticateController extends Controller
     
         // Optionally return a response, redirect, or view
         return redirect()->route('home')->with('message', 'Order created successfully!');
+    }
+
+    public function subscribe(Request $request){
+        
+        $request->validate([
+            'email' => 'required',
+        ]);
+
+        $subs = Subscribe::create([
+            'email' => $request->email,
+            'type' => 'Subscribe',
+        ]);
+
+        return redirect()->back()->with('message', 'Successfully Subscribe');
+    }
+    public function Contacts(Request $request){
+        
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+
+        $subs = Subscribe::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'message' => $request->message,
+            'type' => 'Contact',
+        ]);
+
+        return redirect()->back()->with('message', 'Successfull! We will contact you letter.');
     }
     
     

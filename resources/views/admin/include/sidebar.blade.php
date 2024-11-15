@@ -98,10 +98,10 @@
                                 <span class="hide-menu">About Us</span>
                             </a>
                         </li>
-                        {{-- <li> <a class="waves-effect waves-dark" href="{{url('admin/contact-us')}}">
-                                <span class="hide-menu">Contact Us</span>
+                        <li> <a class="waves-effect waves-dark" href="{{url('admin/subs&contact')}}">
+                                <span class="hide-menu">Subscription & Contact</span>
                             </a>
-                        </li> --}}
+                        </li>
                     </ul>
                 </li>
 

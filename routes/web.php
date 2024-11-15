@@ -66,14 +66,32 @@ Route::prefix('/admin')->middleware('auth','isAdmin')->group( function(){
     Route::post('/banner-update', [FrontendController::class, 'banner_update']);
     Route::get('/WhyChooseus-settings', [FrontendController::class, 'WhyChooseus']);
     Route::post('/whychoose-update', [FrontendController::class, 'WhyChooseusUpdate']);
+    // 
     Route::get('/about-us-settings', [FrontendController::class, 'knowAboutus']);
     Route::post('/know-ab-update', [FrontendController::class, 'knowAboutusUpdate']);
     Route::post('/kn-about-list', [FrontendController::class, 'abListupdate']);
     Route::delete('/benifits-delete', [FrontendController::class, 'deleteBenifits']);
+
     Route::get('/features', [FrontendController::class, 'features']);
     Route::post('/features-update', [FrontendController::class, 'features_update']);
     Route::post('/add_features', [FrontendController::class, 'store_features']);
     Route::delete('/features-delete', [FrontendController::class, 'deleteFeature']);
+
+
+    Route::get('/work-step', [FrontendController::class, 'workStep']);
+    Route::post('/work_step-update', [FrontendController::class, 'workStepUpdate']);
+    Route::post('/add_Workingstep', [FrontendController::class, 'addWorkStep']);
+    Route::delete('/working_step-delete', [FrontendController::class, 'deleteWorkingStep']);
+    //esbenifits
+    Route::get('/essential-benifits', [FrontendController::class, 'Esbenifits']);
+    Route::post('/essential_benifits-update', [FrontendController::class, 'EsbenifitsUpdate']);
+    Route::post('/add_esbenifits', [FrontendController::class, 'add_esbenifits']);
+    Route::delete('/esbenifits-delete', [FrontendController::class, 'deleteEsbenifits']);
+
+    
+    Route::get('/about-us', [FrontendController::class, 'about_us']);
+    Route::post('/about_update', [FrontendController::class, 'about_us_update']);
+
 });
 
 // ==================  user ====================

@@ -86,19 +86,33 @@
                                 <li>
                                     <a href="{{ url('admin/features') }}">Features</a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('admin/work-step') }}">Working Steps</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('admin/essential-benifits') }}">Essential Benifits</a>
+                                </li>
                             </ul>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="{{url('admin/about-us')}}">
+                                <span class="hide-menu">About Us</span>
+                            </a>
+                        </li>
+                        {{-- <li> <a class="waves-effect waves-dark" href="{{url('admin/contact-us')}}">
+                                <span class="hide-menu">Contact Us</span>
+                            </a>
+                        </li> --}}
                     </ul>
                 </li>
 
 
 
-                {{-- <li>
+                <li>
                     <a class="waves-effect waves-dark" href="{{ url('/admin/site-settings') }}">
                         <i class="fa-solid fa-sitemap"></i>
                         <span class="hide-menu">Site Settings </span>
                     </a>
-                </li> --}}
+                </li>
 
 
                 {{-- 

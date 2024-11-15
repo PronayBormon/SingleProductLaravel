@@ -15,7 +15,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Dashboard</h4>
+                <h4 class="text-themecolor">Essential Benifits</h4>
             </div>
             <div class="col-md-7 align-self-center text-end">
                 <div class="d-flex justify-content-end align-items-center">
@@ -48,29 +48,24 @@
                 {{-- ========================================= --}}
                 <div class="card">
                     <div class="card-body">
-                        <h5> Features</h5>
-                        <img src="/frontend/features.png" alt="" style="max-height: 150px;"
+                        <h5>Essential Benifits</h5>
+                        <img src="/frontend/Essential_Benifits.png" alt="" style="max-height: 150px;"
                             class="img-fluid mb-2 d-block" style="max-width: 100%; height: auto;">
-                        <form method="post" action="{{ url('admin/features-update') }}">
+                        <form method="post" action="{{ url('admin/essential_benifits-update') }}" enctype="multipart/form-data" >
                             @csrf
                             <div class="form-group">
                                 <label class="mb-1" for="free">Title</label>
-                                <input type="text" value="{{ old('title', $feature->title) }}" class="form-control"
+                                <input type="text" value="{{ old('title', $Esbenifits->title) }}" class="form-control"
                                     name="title">
                             </div>
                             <div class="form-group">
                                 <label class="mb-1" for="free">Title two</label>
-                                <input type="text" value="{{ old('title_two', $feature->title_two) }}"
+                                <input type="text" value="{{ old('title_two', $Esbenifits->title_two) }}"
                                     class="form-control" name="title_two">
                             </div>
                             <div class="form-group">
-                                <label class="mb-1" for="free">Embaded video link </label>
-                                <input type="text" value="{{ old('embaded_link', $feature->embaded_link) }}"
-                                    class="form-control" name="embaded_link">
-                            </div>
-                            <div class="form-group">
                                 <label for="description" class="mb-1">Description</label>
-                                <textarea class="summernoteSmall" name="description" id="" cols="30" rows="10">{{ old('description', $feature->description) }}</textarea>
+                                <textarea class="summernoteSmall" name="description" id="" cols="30" rows="10">{{ old('description', $Esbenifits->description) }}</textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
@@ -79,18 +74,15 @@
                             <div class="card-body p-3">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h5>List Items</h5>
+                                        <h5>Essentail Benifits List</h5>
                                         <hr>
                                         <ul class="p-0" style="list-style: circle">
                                             @foreach ($list as $item)
                                                 <li class="d-flex align-items-center">
-                                                    <img src="/{{ $item->image }}" style="height: 40px;" alt=""
-                                                        class="img-fluid me-2 bg-light">
                                                     <div>
-                                                        <h5 class="fw-bold">{{ $item->title }}</h5>
-                                                        <p>{{ $item->description }}</p>
+                                                        <h5 class="fw-bold">{{ $item->essential }}</h5>
                                                     </div>
-                                                    <form action="{{ url('admin/features-delete') }}" method="POST">
+                                                    <form action="{{ url('admin/esbenifits-delete') }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input type="hidden" name="id" value="{{ $item->id }}">
@@ -107,25 +99,14 @@
                                         {{ $list->links('vendors.custom-pagination') }}
                                     </div>
                                     <div class="col-md-6">
-                                        <form method="post" action="{{ url('admin/add_features') }}"
+                                        <form method="post" action="{{ url('admin/add_esbenifits') }}"
                                             enctype="multipart/form-data">
                                             @csrf
-                                            <label for="" class="mb-2">Features</label>
+                                            <label for="" class="mb-2">Add Essentail Benifits</label>
                                             <div class="form-group">
-                                                <label for="" class="mb-2">Title</label>
-                                                <input type="text" placeholder="Title" class="form-control"
-                                                    name="title">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="" class="mb-2">Description <span
-                                                        style="font-size: 14px;color:red;">(max-250word)</span></label>
-                                                <input type="text" placeholder="description" class="form-control"
-                                                    name="description">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="" class="mb-2">Svg image </label>
-                                                <input type="file" placeholder="svg image" class="form-control mb-2"
-                                                    name="image">
+                                                <label for="" class="mb-2">Essential</label>
+                                                <input type="text" placeholder="essential" class="form-control"
+                                                    name="essential">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Add new</button>
                                         </form>

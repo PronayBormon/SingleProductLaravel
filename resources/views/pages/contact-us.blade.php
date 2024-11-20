@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="contact-card-content">
                                     <h3>Location</h3>
-                                    <p class="mb-0">69, Washington square new york NY 10012, United States</p>
+                                    <p class="mb-0">{{$contact->address}}</p>
                                 </div>
                             </div>
                         </li>
@@ -56,7 +56,8 @@
                                 </div>
                                 <div class="contact-card-content">
                                     <h3>Support</h3>
-                                    <p class="mb-0">+8 123 456 9870</p>
+                                    <p class="mb-0">{{$contact->phone}}</p>
+                                    <p class="mb-0">{{$contact->telephone}}</p>
                                 </div>
                             </div>
                         </li>
@@ -69,8 +70,8 @@
                                 </div>
                                 <div class="contact-card-content">
                                     <h3>Email</h3>
-                                    <p class="mb-0">fastburner@gmail.com</p>
-                                    <p class="mb-0">infoorgafe.net</p>
+                                    <p class="mb-0">{{$contact->email}}</p>
+                                    <p class="mb-0">{{$contact->email_two}}</p>
                                 </div>
                             </div>
                         </li>

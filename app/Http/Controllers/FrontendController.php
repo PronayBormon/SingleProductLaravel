@@ -451,7 +451,9 @@ class FrontendController extends Controller
                 'linkedin' => $request->linkedin,
                 'about_us' => $request->about_us,
             ]);
+        // dd($logoPath);
         } else {
+            
             // Update without changing logo
             $record->update([
                 'name' => $request->name,

@@ -1,5 +1,7 @@
 <?php
 use App\Models\Products;
+use App\Models\ContactUs;
+$contact = ContactUs::first();
 $products = Products::orderby('id', 'desc')->where('status', 1)->limit(2)->get();
 ?>
 <footer class="fast-footer">
@@ -13,8 +15,6 @@ $products = Products::orderby('id', 'desc')->where('status', 1)->limit(2)->get()
                             features by our daily email.</div>
                     </div>
                     <div class="col-md-4 d-flex align-items-center">
-                        {{-- subscribe --}}
-                        {{-- subscribe --}}
                         <form action="{{ url('/subscribe') }}" method="post" class="">
                             @csrf 
                             <div class="input-group signup-subscribe">
@@ -29,14 +29,14 @@ $products = Products::orderby('id', 'desc')->where('status', 1)->limit(2)->get()
 
         <div class="row footer-second">
             <div class="col-lg-3">
-                <img src="/logo.png" class="img-fluid footer-logo" alt="Fast Burner">
+                <img src="{{$contact->logo}}" class="img-fluid footer-logo" alt="Fast Burner">
                 <div class="d-flex align-items-center justify-content-start">
                     <div class="fast-support-icon">
                         <i class="icon icon-support"></i>
                     </div>
                     <div class="fast-support-wrapper">
                         <div class="fast-support-title">Got Question?</div>
-                        <div class="fast-support-phone"><a href="tel:+447911123456">+44 7911 123456 (900) 689-66</a>
+                        <div class="fast-support-phone"><a href="tel:{{$contact->phone}}">{{$contact->phone}}</a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ $products = Products::orderby('id', 'desc')->where('status', 1)->limit(2)->get()
                         <div class="fast-contact-icon">
                             <i class="icon icon-geo"></i>
                         </div>
-                        <div class="fast-contact-address">70 Washington Square South, New York, NY 10012, United States.
+                        <div class="fast-contact-address">{{$contact->address}}
                         </div>
                     </div>
                 </div>

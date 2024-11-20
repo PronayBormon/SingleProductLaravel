@@ -30,10 +30,12 @@
                             <div class="mb-3">
                                 <img src="/{{ $contact->logo }}" alt="" id="imagePreview" style="height: 80px;"
                                     class="img-fluid"> <br>
+                                    
                                 <label for="logo" class="form-label">Logo</label>
+
                                 <input type="file" class="form-control" id="imageInput" name="logo">
                                 @error('logo')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $logo }}</div>
                                 @enderror
                             </div>
 
@@ -52,7 +54,7 @@
                                 <label for="address" class="form-label">Address</label>
                                 <textarea class="form-control" id="address" name="address" rows="3" required>{{ old('address', $contact->address) }}</textarea>
                                 @error('address')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $address }}</div>
                                 @enderror
                             </div>
 
@@ -62,7 +64,7 @@
                                 <input type="text" class="form-control" value="{{ old('phone', $contact->phone) }}"
                                     id="phone" name="phone">
                                 @error('phone')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $phone }}</div>
                                 @enderror
                             </div>
 
@@ -72,7 +74,7 @@
                                 <input type="text" class="form-control" id="telephone"
                                     value="{{ old('telephone', $contact->telephone) }}" name="telephone">
                                 @error('telephone')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $telephone }}</div>
                                 @enderror
                             </div>
 
@@ -82,7 +84,7 @@
                                 <input type="email" class="form-control" id="email"
                                     value="{{ old('email', $contact->email) }}" name="email" required>
                                 @error('email')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $email }}</div>
                                 @enderror
                             </div>
 
@@ -92,7 +94,7 @@
                                 <input type="email" class="form-control" id="email_two"
                                     value="{{ old('email_two', $contact->email_two) }}" name="email_two">
                                 @error('email_two')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $email_two }}</div>
                                 @enderror
                             </div>
 
@@ -102,7 +104,7 @@
                                 <input type="text" class="form-control" id="facebook"
                                     value="{{ old('facebook', $contact->facebook) }}" name="facebook">
                                 @error('facebook')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $facebook }}</div>
                                 @enderror
                             </div>
 
@@ -112,7 +114,7 @@
                                 <input type="text" class="form-control" id="whatsapp"
                                     value="{{ old('whatsapp', $contact->whatsapp) }}" name="whatsapp">
                                 @error('whatsapp')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $whatsapp }}</div>
                                 @enderror
                             </div>
 
@@ -122,7 +124,7 @@
                                 <input type="text" class="form-control" id="twitter"
                                     value="{{ old('twitter', $contact->twitter) }}" name="twitter">
                                 @error('twitter')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $twitter }}</div>
                                 @enderror
                             </div>
 
@@ -132,7 +134,7 @@
                                 <input type="text" class="form-control" id="instagram"
                                     value="{{ old('instagram', $contact->instagram) }}" name="instagram">
                                 @error('instagram')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $instagram }}</div>
                                 @enderror
                             </div>
 
@@ -142,7 +144,7 @@
                                 <input type="text" class="form-control" id="linkedin"
                                     value="{{ old('linkedin', $contact->linkedin) }}" name="linkedin">
                                 @error('linkedin')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $linkedin }}</div>
                                 @enderror
                             </div>
 
@@ -151,7 +153,7 @@
                                 <label for="about_us" class="form-label">About Us</label>
                                 <textarea class="form-control" id="about_us" name="about_us" rows="4">{{ old('about_us', $contact->about_us) }}</textarea>
                                 @error('about_us')
-                                    <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $about_us }}</div>
                                 @enderror
                             </div>
 
@@ -186,68 +188,51 @@
                                 </th>
                                 <th>
                                     <a href="/{{$contact->logo}}"
-                                        target="_blank"><img
+                                        target="_blank"><img style="height: 80px;"
                                             src="/{{$contact->logo}}"
                                             alt="" class="img-fluid"></a>
                                 </th>
                             </tr>
                             <tr>
                                 <th>Name</th>
-                                <th>FuturegenIT</th>
+                                <th>{{$contact->name}}</th>
                             </tr>
                             <tr>
                                 <th>Address</th>
-                                <th>Address 1, road number, Division, Country</th>
+                                <th>{{$contact->address}}</th>
                             </tr>
                             <tr>
                                 <th>Phone</th>
-                                <th>+1223423434</th>
+                                <th>{{$contact->phone}}</th>
                             </tr>
                             <tr>
                                 <th>Telephone</th>
-                                <th>+1210032482</th>
+                                <th>{{$contact->telephone}}</th>
                             </tr>
                             <tr>
                                 <th>Email</th>
-                                <th>yourmail@mail.com</th>
+                                <th>{{$contact->email}} <br> {{$contact->email_two}}</th>
                             </tr>
                             <tr>
                                 <th>Facebook</th>
-                                <th><a
-                                        href="http://127.0.0.1:8000/backend/assets/images/logo-light-text.png">http://127.0.0.1:8000/backend/assets/images/logo-light-text.png</a>
-                                </th>
+                                <th><a href="{{$contact->facebook}}">{{$contact->facebook}}</a> </th>
                             </tr>
                             <tr>
                                 <th>Twitter</th>
-                                <th><a
-                                        href="http://127.0.0.1:8000/backend/assets/images/logo-light-text.png">http://127.0.0.1:8000/backend/assets/images/logo-light-text.png</a>
-                                </th>
+                                <th><a href="{{$contact->instagram}}">{{$contact->instagram}}</a> </th>
                             </tr>
                             <tr>
                                 <th>Instagram</th>
-                                <th><a
-                                        href="http://127.0.0.1:8000/backend/assets/images/logo-light-text.png">http://127.0.0.1:8000/backend/assets/images/logo-light-text.png</a>
-                                </th>
+                                <th><a href="{{$contact->instagram}}">{{$contact->instagram}}</a> </th>
                             </tr>
                             <tr>
                                 <th>Linkedin</th>
-                                <th><a
-                                        href="http://127.0.0.1:8000/backend/assets/images/logo-light-text.png">http://127.0.0.1:8000/backend/assets/images/logo-light-text.png</a>
-                                </th>
+                                <th><a href="{{$contact->linkedin}}">{{$contact->linkedin}}</a> </th>
                             </tr>
                             <tr>
                                 <th style="min-width: 20%">About us:</th>
                                 <th>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nemo quas quibusdam
-                                        tempora similique at iste nulla! Fugiat rerum fuga, adipisci numquam modi similique
-                                        eveniet dolore, nisi maiores cumque minus consectetur totam rem possimus
-                                        accusantium, ab libero consequuntur vitae perferendis? Laboriosam minus maiores non
-                                        ipsum earum veniam nihil alias perspiciatis consectetur sequi, asperiores, dolores
-                                        totam modi. Placeat excepturi quam facilis sit ratione accusantium repellat,
-                                        distinctio reiciendis dolorum qui laborum aliquid iste, optio voluptatem animi dicta
-                                        illum quisquam neque est. Aliquam non dicta cumque repudiandae officia quaerat
-                                        voluptate deserunt aut minus quia, possimus nulla maiores corrupti, velit
-                                        laudantium, sequi tempore dolore.</p>
+                                    <p>{!! $contact->about_us !!}</p>
                                 </th>
                             </tr>
                             </tr>

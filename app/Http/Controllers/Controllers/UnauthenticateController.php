@@ -2,30 +2,31 @@
 
 namespace App\Http\Controllers\Controllers;
 
-use App\Models\Order;
-use App\Models\Products;
-use App\Models\OrderItem;
-
-
-
-use App\Models\Banner;
-use App\Models\WorkStep;
-use App\Models\Feature;
-use App\Models\WhyChoose;
-use App\Models\KnowAboutUs;
-use App\Models\FeaturesList;
-use App\Models\ProductBenifits;
-use App\Models\WorkingStep;
-use App\Models\EssBenifits;
-use App\Models\Essential;
 use App\Models\About;
+use App\Models\Order;
+use App\Models\Banner;
+
+
+
+use App\Models\Feature;
+use App\Models\Products;
+use App\Models\WorkStep;
+use App\Models\ContactUs;
+use App\Models\Essential;
+use App\Models\OrderItem;
+use App\Models\Subscribe;
+use App\Models\WhyChoose;
+use App\Models\EssBenifits;
+use App\Models\KnowAboutUs;
+use App\Models\WorkingStep;
 
 
 
 use Illuminate\Support\Str;
+use App\Models\FeaturesList;
 use Illuminate\Http\Request;
+use App\Models\ProductBenifits;
 use App\Http\Controllers\Controller;
-use App\Models\Subscribe;
 use Illuminate\Support\Facades\Auth;
 
 class UnauthenticateController extends Controller
@@ -61,8 +62,9 @@ class UnauthenticateController extends Controller
     }
     public function contact()
     {
-        $user = Auth::user();
-        return view("pages.contact-us", compact('user'));
+        
+        $contact = ContactUs::first();
+        return view("pages.contact-us", compact('contact'));
     }
     public function product_store(Request $request)
     {
